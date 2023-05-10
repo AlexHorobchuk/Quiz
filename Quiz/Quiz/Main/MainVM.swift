@@ -11,7 +11,23 @@ class MainVM: ObservableObject {
     
     @Published var categories: [Category] = []
     @Published var alert: AlertItem?
+    private var selectedCategory: Category?
+    private var categoryName: String?
     
+    func setCategory(category: Category) {
+        selectedCategory = category
+        categoryName = category.name
+    }
+    
+    func getCategoryName() -> String {
+        guard let categoryName = categoryName else { return "" }
+        return categoryName
+    }
+    
+    func getSelectedCategory() -> Category {
+        guard let selectedCategory = selectedCategory else { return Category(_id: "1", name: "1") }
+        return selectedCategory
+    }
     
     func setCategorys() {
         NetworkManager.shared.fetchCategories() { [self] (result) in

@@ -9,32 +9,9 @@ import SwiftUI
 
 struct QuizGame: View {
     
-    
     @EnvironmentObject var storage: StorageController
     @StateObject var game: GameVM
     @State var timer: Timer?
-    
-    func getShadowColor(index: Int) -> Color {
-        if game.answerdRight == nil && index == game.selected {
-            return Color.white
-        } else if game.answerdRight != nil && index == game.selected {
-            return game.answerdRight! ? Color.green : Color.red
-        } else {
-            return Color.clear
-        }
-    }
-    
-    func getTextColor(index: Int) -> Color {
-        if game.answerdRight == nil {
-            return Color.white
-        } else if game.answerdRight == false && index == game.selected {
-            return Color.red
-        } else if game.answerdRight == true && index == game.selected {
-            return Color.green
-        } else {
-            return Color.white
-        }
-    }
     
     var body: some View {
         BaseView() {
@@ -56,16 +33,15 @@ struct QuizGame: View {
                             }
                             
                             ForEach(Array(question.options.enumerated()), id: \.element) { index, value  in
-                                Button(action: { withAnimation(.easeInOut(duration: 0.5)) {
-                                    game.selectQuestion(number: index) }
-                                }, label: {
-                                    AnswerButton(text: value.option )
-                                        .foregroundColor(getTextColor(index: index))
-                                            .shadow(
-                                                color: getShadowColor(index: index),
-                                                radius: index == game.selected ? (game.answerdRight == nil ? 5 : 7) : 0
-                                            )
-                                })
+                                AnswerButton(action: {
+                                    withAnimation(.easeInOut(duration: 0.5)) {
+                                        game.selectQuestion(number: index)
+                                    }
+                                },
+                                text: value.option ,
+                                index: index,
+                                selected: $game.selected,
+                                isRight: $game.answerdRight)
                                 .padding(10)
                             }
                         }
@@ -77,11 +53,6 @@ struct QuizGame: View {
                         game.confirmAnswer()
                         if game.gameFinished {
                             self.timer?.invalidate()
-                            
-                            storage.updateLevel(level: game.info.level,
-                                                newTime: game.timeDisplay,
-                                                result: game.getResult(),
-                                                updateMax: game.needUpdateMax())
                         }
                     }
                     }, label: {
@@ -107,6 +78,10 @@ struct QuizGame: View {
         }
         .onDisappear {
             self.timer?.invalidate()
+            storage.updateLevel(level: game.info.level,
+                                newTime: game.timeDisplay,
+                                result: game.getResult(),
+                                updateMax: game.needUpdateMax())
         }
     }
 }

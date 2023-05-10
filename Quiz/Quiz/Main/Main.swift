@@ -23,16 +23,22 @@ struct Main: View {
                             
                             ScrollView {
                                 ForEach(mainVM.categories, id: \.self.name) { category in
-                                    NavigationLink(
-                                        destination: GameSetter(storage: StorageController(category: category.name),
-                                                                gameSetterVM: GameSetterVM(category: category)),
-                                        isActive: $navigation.showNextView,
-                                        label: { MainButton(text: category.name) })
+                                    Button (action: {
+                                        mainVM.setCategory(category: category)
+                                        navigation.showNextView = true
+                                    },
+                                            label: { MainButton(text: category.name) })
                                     .padding(10)
                                     
                                 }
                                 .padding(.horizontal)
                             }
+                            
+                            NavigationLink(
+                                destination: GameSetter(storage: StorageController(category: mainVM.getCategoryName()),
+                                                        gameSetterVM: GameSetterVM(category: mainVM.getSelectedCategory())),
+                                isActive: $navigation.showNextView) { EmptyView()}
+                            
                             
                             Spacer(minLength: 50)
                         }

@@ -12,7 +12,6 @@ struct GameInfo: View {
     @EnvironmentObject var storage: StorageController
     @StateObject var infoVM: GameInfoVM
     
-    
     var body: some View {
         BaseView() {
             VStack {

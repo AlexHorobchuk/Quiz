@@ -41,7 +41,7 @@ class GameVM: ObservableObject {
     }
     
     func needUpdateMax() -> Bool {
-        if didWin() && info.maxLevel < info.level {
+        if didWin() && info.maxLevel > info.level {
             return true
         }
         return false

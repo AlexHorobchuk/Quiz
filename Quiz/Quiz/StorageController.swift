@@ -51,8 +51,8 @@ class StorageController: ObservableObject {
         manager.saveData()
         if updateMax {
             let category =  manager.fetchCategory(name: category)
-            if category.openLevel == level {
-                category.openLevel += 1
+            if category.openLevel == Int64(level) {
+                category.openLevel = Int64(level + 1)
                 manager.saveData()
             }
         }
