@@ -16,6 +16,7 @@
 		B02DF5372A09A4660074D5C0 /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DF5362A09A4660074D5C0 /* StorageController.swift */; };
 		B02DF53A2A09C7FD0074D5C0 /* GameInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DF5392A09C7FD0074D5C0 /* GameInfoVM.swift */; };
 		B02DF53D2A09E5A80074D5C0 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DF53C2A09E5A80074D5C0 /* GameVM.swift */; };
+		B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D12A0C521900414C79 /* NavigationController.swift */; };
 		B093DF4F2A01FEBE00E5E3FA /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */; };
 		B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF502A01FEBE00E5E3FA /* Main.swift */; };
 		B093DF532A01FEC000E5E3FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B093DF522A01FEC000E5E3FA /* Assets.xcassets */; };
@@ -51,6 +52,7 @@
 		B02DF5362A09A4660074D5C0 /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
 		B02DF5392A09C7FD0074D5C0 /* GameInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoVM.swift; sourceTree = "<group>"; };
 		B02DF53C2A09E5A80074D5C0 /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
+		B03E56D12A0C521900414C79 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		B093DF4B2A01FEBE00E5E3FA /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
 		B093DF502A01FEBE00E5E3FA /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -125,6 +127,33 @@
 			path = Game;
 			sourceTree = "<group>";
 		};
+		B03E56CF2A0C485400414C79 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				B0AB3BC02A05F236001946C5 /* Settings.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		B03E56D02A0C489300414C79 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B02DF5342A08A04C0074D5C0 /* StorageManager.swift */,
+				B093DF5D2A01FF1800E5E3FA /* NetworkManager.swift */,
+				B093DF5F2A020CF700E5E3FA /* Errors.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B03E56D32A0C526500414C79 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56D12A0C521900414C79 /* NavigationController.swift */,
+				B02DF5362A09A4660074D5C0 /* StorageController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		B093DF422A01FEBD00E5E3FA = {
 			isa = PBXGroup;
 			children = (
@@ -147,22 +176,19 @@
 				B093DF5C2A01FEF700E5E3FA /* Info.plist */,
 				B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */,
 				B0AB3BB52A022897001946C5 /* Model.swift */,
-				B02DF5342A08A04C0074D5C0 /* StorageManager.swift */,
-				B02DF5362A09A4660074D5C0 /* StorageController.swift */,
 				B02DF5272A0863A70074D5C0 /* Main */,
 				B02DF52E2A086FE90074D5C0 /* GameSetter */,
 				B02DF5382A09C7A10074D5C0 /* GameInfo */,
 				B02DF53B2A09E5850074D5C0 /* Game */,
 				B0E0CFB72A0A10CB00175F02 /* EndOfQuiz */,
-				B0AB3BC02A05F236001946C5 /* Settings.swift */,
-				B093DF5D2A01FF1800E5E3FA /* NetworkManager.swift */,
+				B03E56CF2A0C485400414C79 /* Settings */,
+				B03E56D32A0C526500414C79 /* Controllers */,
 				B0AB3BC62A060788001946C5 /* Views */,
-				B093DF5F2A020CF700E5E3FA /* Errors.swift */,
+				B03E56D02A0C489300414C79 /* Helpers */,
 				B0AB3BC42A060260001946C5 /* Extensions.swift */,
 				B0AB3BD12A070AEC001946C5 /* Extras.swift */,
 				B093DF522A01FEC000E5E3FA /* Assets.xcassets */,
 				B093DF542A01FEC000E5E3FA /* Preview Content */,
-				B02DF52C2A0868590074D5C0 /* LoadingView.swift */,
 				B02DF5312A089FE90074D5C0 /* Storage.xcdatamodeld */,
 			);
 			path = Quiz;
@@ -179,6 +205,7 @@
 		B0AB3BC62A060788001946C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B02DF52C2A0868590074D5C0 /* LoadingView.swift */,
 				B0AB3BC72A0607BA001946C5 /* LinkView.swift */,
 				B0AB3BCB2A06126F001946C5 /* Buttons.swift */,
 				B0AB3BCF2A0708B1001946C5 /* LevelView.swift */,
@@ -293,6 +320,7 @@
 				B0AB3BDA2A074FF0001946C5 /* ProgressTable.swift in Sources */,
 				B02DF52D2A0868590074D5C0 /* LoadingView.swift in Sources */,
 				B0AB3BD82A074021001946C5 /* QuizGame.swift in Sources */,
+				B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */,
 				B02DF5372A09A4660074D5C0 /* StorageController.swift in Sources */,
 				B093DF5E2A01FF1800E5E3FA /* NetworkManager.swift in Sources */,
 				B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */,

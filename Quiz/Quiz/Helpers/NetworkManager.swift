@@ -31,9 +31,6 @@ final class NetworkManager {
         NetworkManager.shared.fetchData(link: link, completion: completion)
     }
     
-    
-    
-    
     private func fetchData<T: Decodable>(link: String, completion: @escaping (Result<T, NetworkError>) -> Void) {
         guard let url = URL(string: link) else {
             completion(.failure(.invalidURL))
@@ -53,7 +50,9 @@ final class NetworkManager {
             }
             
             guard let response = response as? HTTPURLResponse, response.statusCode == 200 else {
-                completion(.failure(.invalidResponse))
+                DispatchQueue.main.async {
+                    completion(.failure(.invalidResponse))
+                }
                 return
             }
             

@@ -10,7 +10,9 @@ import SwiftUI
 struct QuizGame: View {
     
     @EnvironmentObject var storage: StorageController
+    
     @StateObject var game: GameVM
+    
     @State var timer: Timer?
     
     var body: some View {
@@ -24,7 +26,6 @@ struct QuizGame: View {
                                  questionNumber: game.index + 1, text: "Questions")
                     
                     ForEach(game.info.questions, id: \.self._id) { question in
-                        
                         if game.currentQuestion() == question {
                             ScrollView {
                                 QuestionText(text: question.text)
@@ -33,15 +34,16 @@ struct QuizGame: View {
                             }
                             
                             ForEach(Array(question.options.enumerated()), id: \.element) { index, value  in
-                                AnswerButton(action: {
-                                    withAnimation(.easeInOut(duration: 0.5)) {
-                                        game.selectQuestion(number: index)
-                                    }
-                                },
-                                text: value.option ,
-                                index: index,
-                                selected: $game.selected,
-                                isRight: $game.answerdRight)
+                                AnswerButton(
+                                    action: {
+                                        withAnimation(.easeInOut(duration: 0.5)) {
+                                            game.selectQuestion(number: index)
+                                        }
+                                    },
+                                    text: value.option ,
+                                    index: index,
+                                    selected: $game.selected,
+                                    isRight: $game.answerdRight)
                                 .padding(10)
                             }
                         }
@@ -49,26 +51,29 @@ struct QuizGame: View {
                     .transition(.asymmetric(insertion: .move(edge: .leading),
                                             removal: .move(edge: .trailing)))
                     
-                    Button(action: { withAnimation(.easeInOut(duration: 0.5)) {
-                        game.confirmAnswer()
-                        if game.gameFinished {
-                            self.timer?.invalidate()
+                    Button(
+                        action: { withAnimation(.easeInOut(duration: 0.5)) {
+                            game.confirmAnswer()
+                            if game.gameFinished {
+                                self.timer?.invalidate()
+                            }
                         }
-                    }
-                    }, label: {
-                        NextButton(text: "Next")
-                    })
+                        },
+                        label: {
+                            NextButton(text: "Next")
+                        })
                     .padding(.bottom, 30)
                     .padding(10)
                     
                 }
                 .padding(.horizontal)
                 
-                NavigationLink(destination: EndOfQuiz(endGameVM: EndOfQuizVM(info: game.info,
-                                                                             result: game.getResult(),
-                                                                             didWin: game.didWin(),
-                                                                             time: game.timeDisplay)),
-                               isActive: $game.gameFinished) { EmptyView() }
+                NavigationLink(
+                    destination: EndOfQuiz(endGameVM: EndOfQuizVM(info: game.info,
+                                                                  result: game.getResult(),
+                                                                  didWin: game.didWin(),
+                                                                  time: game.timeDisplay)),
+                    isActive: $game.gameFinished) { EmptyView() }
             }
         }
         .onAppear {

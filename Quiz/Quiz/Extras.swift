@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-class NavigationHelper: ObservableObject {
-    @Published var showNextView = false
-    var action: (()->())?
-}
-
 struct Getter {
     
     static let shared = Getter()
@@ -52,6 +47,7 @@ struct Getter {
 }
 
 struct ParticleEffectView: UIViewRepresentable {
+    
     func makeUIView(context: Context) -> UIView {
         let particleEmitter = CAEmitterLayer()
         particleEmitter.emitterPosition = CGPoint(x: UIScreen.main.bounds.width / 2, y: -50)

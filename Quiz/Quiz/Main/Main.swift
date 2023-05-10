@@ -18,18 +18,18 @@ struct Main: View {
                 Group {
                     if !mainVM.categories.isEmpty {
                         VStack {
-                            
                             Spacer(minLength: 50)
                             
                             ScrollView {
                                 ForEach(mainVM.categories, id: \.self.name) { category in
-                                    Button (action: {
-                                        mainVM.setCategory(category: category)
-                                        navigation.showNextView = true
-                                    },
-                                            label: { MainButton(text: category.name) })
+                                    Button (
+                                        action: {
+                                            mainVM.setCategory(category: category)
+                                            navigation.showNextView = true
+                                        },
+                                        label: { MainButton(text: category.name) }
+                                    )
                                     .padding(10)
-                                    
                                 }
                                 .padding(.horizontal)
                             }
@@ -39,11 +39,11 @@ struct Main: View {
                                                         gameSetterVM: GameSetterVM(category: mainVM.getSelectedCategory())),
                                 isActive: $navigation.showNextView) { EmptyView()}
                             
-                            
                             Spacer(minLength: 50)
                         }
-                        
-                    } else {
+                    }
+                    
+                    else {
                         LoadingView()
                     }
                 }

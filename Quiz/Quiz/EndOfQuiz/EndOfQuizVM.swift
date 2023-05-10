@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class EndOfQuizVM: ObservableObject {
+final class EndOfQuizVM: ObservableObject {
+    
     var info: Info
     var result: Int
     var didWin: Bool

@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-class MainVM: ObservableObject {
+final class MainVM: ObservableObject {
     
     @Published var categories: [Category] = []
     @Published var alert: AlertItem?
+    
     private var selectedCategory: Category?
     private var categoryName: String?
     

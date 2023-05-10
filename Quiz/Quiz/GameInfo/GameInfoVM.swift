@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class GameInfoVM: ObservableObject {
+final class GameInfoVM: ObservableObject {
     
     var info: Info
     

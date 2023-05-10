@@ -15,31 +15,31 @@ struct GameInfo: View {
     var body: some View {
         BaseView() {
             VStack {
-                
                 LevelNumber(level: infoVM.info.level)
                 
                 Spacer()
                 
-                ScaledImage(name: Getter.shared.categoryImage(category: infoVM.info.category), size: .init(width: 250, height: 250))
+                ScaledImage(name: Getter.shared.categoryImage(category: infoVM.info.category),
+                            size: .init(width: 250, height: 250))
                     .opacity(0.2)
                 
                 Spacer()
                 
-                ProgressTable(averageTime: storage.getLevelsAvarageTime(level: 1) == 0.00 ?
-                              "-:-" : String(format: "%.2f", storage.getLevelsAvarageTime(level: 1).convertToMinutesAndSeconds()))
+                ProgressTable(averageTime: storage.getLevelsAvarageTime(level: infoVM.info.level) == 0.00 ?
+                              "-:-" : String(format: "%.2f", storage.getLevelsAvarageTime(level: infoVM.info.level).convertToMinutesAndSeconds()))
                 
                 
-                NavigationLink(destination: { QuizGame(game: GameVM(info: infoVM.info))
-                .environmentObject(storage)
-                }
-                               , label: {
-                    MainButton(text: "Single player")
-                })
+                NavigationLink(
+                    destination: { QuizGame(game: GameVM(info: infoVM.info))
+                            .environmentObject(storage) }
+                    , label: { MainButton(text: "Single player") })
                 .padding(10)
                 
-                NavigationLink(destination: { }, label: {
-                    MainButton(text: "Multiplayer")
-                })
+                NavigationLink(
+                    destination: { },
+                    label: {
+                        MainButton(text: "Multiplayer")
+                    })
                 .padding(10)
                 
                 Spacer()

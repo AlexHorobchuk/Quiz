@@ -7,14 +7,16 @@
 
 import SwiftUI
 
-class GameVM: ObservableObject {
+final class GameVM: ObservableObject {
     
     @Published var index = 0
     @Published var selected: Int?
     @Published var timeDisplay: Double = 0
     @Published var gameFinished = false
     @Published var answerdRight: Bool?
+    
     private var answers : [Bool] = []
+    
     var info : Info
     
     init(info: Info) {

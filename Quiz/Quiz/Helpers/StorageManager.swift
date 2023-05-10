@@ -9,8 +9,10 @@ import Foundation
 import CoreData
 
 final class StorageManager {
-    let container = NSPersistentContainer(name: "Storage")
+    
     static let shared = StorageManager()
+    
+    let container = NSPersistentContainer(name: "Storage")
     
     private init() {
         container.loadPersistentStores { description, error in
@@ -37,15 +39,6 @@ final class StorageManager {
         return CategoryEntity()
     }
     
-    func addCategory(name: String) -> CategoryEntity {
-        let newCategory = CategoryEntity(context: container.viewContext)
-        newCategory.name = name
-        newCategory.openLevel = 1
-        saveData()
-        addLevel(level: 1, for: newCategory)
-        return newCategory
-    }
-    
     func addLevel(level: Int, for category: CategoryEntity) {
         let newLevel = LevelEntity(context: container.viewContext)
         newLevel.level = Int64(level)
@@ -67,5 +60,14 @@ final class StorageManager {
         } catch let error {
             print("Couldt save to CoreData: \(error.localizedDescription)")
         }
+    }
+    
+    private func addCategory(name: String) -> CategoryEntity {
+        let newCategory = CategoryEntity(context: container.viewContext)
+        newCategory.name = name
+        newCategory.openLevel = 1
+        saveData()
+        addLevel(level: 1, for: newCategory)
+        return newCategory
     }
 }

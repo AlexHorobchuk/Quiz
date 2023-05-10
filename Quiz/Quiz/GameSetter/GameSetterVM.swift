@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-class GameSetterVM: ObservableObject {
+final class GameSetterVM: ObservableObject {
     
     @Published var questions: [Question] = []
     @Published var alert: AlertItem?
+    
     private var category: Category
     private var selectedLevel: Int?
     private var minAndMax = (1 , 5)
@@ -72,7 +73,7 @@ class GameSetterVM: ObservableObject {
         }
     }
     
-    enum LevelHardnes: Int {
+    private enum LevelHardnes: Int {
         case superEase = 1, easy, medium, hard, superHard
         
         func getHardnes() -> [String] {

@@ -7,32 +7,18 @@
 
 import SwiftUI
 
-class StorageController: ObservableObject {
+final class StorageController: ObservableObject {
+    
+    @Published var openLevel = 1
     
     private var manager = StorageManager.shared
     private var category: String
     private var categoryEntity: CategoryEntity?
     private var currentLevel: LevelEntity?
-    @Published var openLevel = 1
     
     init(category: String) {
         self.category = category
         update()
-    }
-    
-    func setCategory() {
-        categoryEntity = manager.fetchCategory(name: category)
-    }
-    
-    func setOpenLevel() {
-        if let categoryEntity {
-            openLevel = Int(categoryEntity.openLevel)
-        }
-    }
-    
-    func update() {
-        setCategory()
-        setOpenLevel()
     }
     
     func getLevelsBestResult(level: Int) -> Int {
@@ -60,22 +46,33 @@ class StorageController: ObservableObject {
     }
     
     func getLevelsAvarageTime(level: Int) -> Double {
-        var allTimeResults = [Double]()
-        guard let level = getLevel(level: level) else { return 0.00 }
-        if let time = level.time?.allObjects as? [TimeEntity] {
-            for i in time {
-                allTimeResults.append(i.time)
-            }
+        guard let level = getLevel(level: level),
+              let time = level.time?.allObjects as? [TimeEntity],
+              !time.isEmpty else {
+            return 0.0
         }
-        guard !allTimeResults.isEmpty else { return 0.00}
-        let alltime = allTimeResults.reduce(0, +) / Double(allTimeResults.count)
-        return alltime
+        return time.map { $0.time }.reduce(0.0, +) / Double(time.count)
     }
     
-    func getLevel(level: Int) -> LevelEntity? {
+    private func getLevel(level: Int) -> LevelEntity? {
         if let levels = categoryEntity?.levels?.allObjects as? [LevelEntity] {
                 return levels.first(where: { $0.level == level })
             }
         return nil
+    }
+    
+    private func setCategory() {
+        categoryEntity = manager.fetchCategory(name: category)
+    }
+    
+    private func setOpenLevel() {
+        if let categoryEntity {
+            openLevel = Int(categoryEntity.openLevel)
+        }
+    }
+    
+    private func update() {
+        setCategory()
+        setOpenLevel()
     }
 }
