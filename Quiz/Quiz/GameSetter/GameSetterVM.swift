@@ -17,7 +17,6 @@ class GameSetterVM: ObservableObject {
     
     init(category: Category) {
         self.category = category
-        print(category)
     }
     
     // MARK: incease if we will have different amaount of question for levels
