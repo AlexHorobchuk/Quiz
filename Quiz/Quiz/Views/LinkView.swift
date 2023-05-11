@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct LinkView: View {
+    
     let text: String
     let destination: String
     
     var body: some View {
-        
         VStack {
-            Link(destination: URL(string: destination)!,
-                 label: {
+            Link(
+                destination: URL(string: destination)!,
+                label: {
                 HStack {
                     Text(text)
                         .foregroundColor(.white)
@@ -27,7 +28,6 @@ struct LinkView: View {
                     Image(systemName: "chevron.right")
                         .opacity(0.5)
                     
-                    
                 }
                 .padding(.vertical)
                 .foregroundColor(.white)
@@ -36,7 +36,6 @@ struct LinkView: View {
             Divider()
                 .background(Color.white)
                 .opacity(0.5)
-            
         }
         .padding(.horizontal, 20)
     }

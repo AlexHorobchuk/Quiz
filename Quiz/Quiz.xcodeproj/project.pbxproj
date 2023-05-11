@@ -17,6 +17,8 @@
 		B02DF53A2A09C7FD0074D5C0 /* GameInfoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DF5392A09C7FD0074D5C0 /* GameInfoVM.swift */; };
 		B02DF53D2A09E5A80074D5C0 /* GameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B02DF53C2A09E5A80074D5C0 /* GameVM.swift */; };
 		B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D12A0C521900414C79 /* NavigationController.swift */; };
+		B03E56D62A0C994900414C79 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D52A0C994900414C79 /* MainButton.swift */; };
+		B03E56D82A0C996500414C79 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D72A0C996500414C79 /* NextButton.swift */; };
 		B093DF4F2A01FEBE00E5E3FA /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */; };
 		B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF502A01FEBE00E5E3FA /* Main.swift */; };
 		B093DF532A01FEC000E5E3FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B093DF522A01FEC000E5E3FA /* Assets.xcassets */; };
@@ -29,7 +31,7 @@
 		B0AB3BC32A05F286001946C5 /* GameSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BC22A05F286001946C5 /* GameSetter.swift */; };
 		B0AB3BC52A060260001946C5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BC42A060260001946C5 /* Extensions.swift */; };
 		B0AB3BC82A0607BA001946C5 /* LinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BC72A0607BA001946C5 /* LinkView.swift */; };
-		B0AB3BCC2A06126F001946C5 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BCB2A06126F001946C5 /* Buttons.swift */; };
+		B0AB3BCC2A06126F001946C5 /* AnswerButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BCB2A06126F001946C5 /* AnswerButton.swift */; };
 		B0AB3BD02A0708B1001946C5 /* LevelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BCF2A0708B1001946C5 /* LevelView.swift */; };
 		B0AB3BD22A070AEC001946C5 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BD12A070AEC001946C5 /* Extras.swift */; };
 		B0AB3BD42A0725BD001946C5 /* GameInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0AB3BD32A0725BD001946C5 /* GameInfo.swift */; };
@@ -53,6 +55,8 @@
 		B02DF5392A09C7FD0074D5C0 /* GameInfoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfoVM.swift; sourceTree = "<group>"; };
 		B02DF53C2A09E5A80074D5C0 /* GameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameVM.swift; sourceTree = "<group>"; };
 		B03E56D12A0C521900414C79 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
+		B03E56D52A0C994900414C79 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
+		B03E56D72A0C996500414C79 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
 		B093DF4B2A01FEBE00E5E3FA /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
 		B093DF502A01FEBE00E5E3FA /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -67,7 +71,7 @@
 		B0AB3BC22A05F286001946C5 /* GameSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSetter.swift; sourceTree = "<group>"; };
 		B0AB3BC42A060260001946C5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B0AB3BC72A0607BA001946C5 /* LinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinkView.swift; sourceTree = "<group>"; };
-		B0AB3BCB2A06126F001946C5 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		B0AB3BCB2A06126F001946C5 /* AnswerButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnswerButton.swift; sourceTree = "<group>"; };
 		B0AB3BCF2A0708B1001946C5 /* LevelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LevelView.swift; sourceTree = "<group>"; };
 		B0AB3BD12A070AEC001946C5 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
 		B0AB3BD32A0725BD001946C5 /* GameInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameInfo.swift; sourceTree = "<group>"; };
@@ -154,6 +158,16 @@
 			path = Controllers;
 			sourceTree = "<group>";
 		};
+		B03E56D42A0C992900414C79 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56D52A0C994900414C79 /* MainButton.swift */,
+				B03E56D72A0C996500414C79 /* NextButton.swift */,
+				B0AB3BCB2A06126F001946C5 /* AnswerButton.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
 		B093DF422A01FEBD00E5E3FA = {
 			isa = PBXGroup;
 			children = (
@@ -205,9 +219,9 @@
 		B0AB3BC62A060788001946C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B03E56D42A0C992900414C79 /* Buttons */,
 				B02DF52C2A0868590074D5C0 /* LoadingView.swift */,
 				B0AB3BC72A0607BA001946C5 /* LinkView.swift */,
-				B0AB3BCB2A06126F001946C5 /* Buttons.swift */,
 				B0AB3BCF2A0708B1001946C5 /* LevelView.swift */,
 				B0AB3BD52A07309A001946C5 /* ScaledImage.swift */,
 				B0AB3BD92A074FF0001946C5 /* ProgressTable.swift */,
@@ -310,10 +324,11 @@
 				B02DF53D2A09E5A80074D5C0 /* GameVM.swift in Sources */,
 				B02DF5292A0863F40074D5C0 /* MainVM.swift in Sources */,
 				B0AB3BC32A05F286001946C5 /* GameSetter.swift in Sources */,
+				B03E56D62A0C994900414C79 /* MainButton.swift in Sources */,
 				B0AB3BB82A02339A001946C5 /* BaseScene.swift in Sources */,
 				B0AB3BC12A05F236001946C5 /* Settings.swift in Sources */,
 				B0AB3BE02A079662001946C5 /* Labels.swift in Sources */,
-				B0AB3BCC2A06126F001946C5 /* Buttons.swift in Sources */,
+				B0AB3BCC2A06126F001946C5 /* AnswerButton.swift in Sources */,
 				B0AB3BD02A0708B1001946C5 /* LevelView.swift in Sources */,
 				B0AB3BC52A060260001946C5 /* Extensions.swift in Sources */,
 				B093DF602A020CF700E5E3FA /* Errors.swift in Sources */,
@@ -328,6 +343,7 @@
 				B0AB3BC82A0607BA001946C5 /* LinkView.swift in Sources */,
 				B02DF5302A087BD50074D5C0 /* GameSetterVM.swift in Sources */,
 				B093DF4F2A01FEBE00E5E3FA /* QuizApp.swift in Sources */,
+				B03E56D82A0C996500414C79 /* NextButton.swift in Sources */,
 				B0AB3BD42A0725BD001946C5 /* GameInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

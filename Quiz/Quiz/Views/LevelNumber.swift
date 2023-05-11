@@ -15,6 +15,7 @@ struct LevelNumber: View {
         HStack {
             Text("LEVEL")
                 .foregroundColor(.white)
+            
             Text("# \(level)")
                 .foregroundColor(.red)
         }

@@ -33,7 +33,6 @@ final class GameSetterVM: ObservableObject {
                     category: category.name)
     }
     
-    
     func selectLevel(_ level: Int) {
         selectedLevel = level
     }

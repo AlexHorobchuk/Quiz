@@ -8,18 +8,18 @@
 import SwiftUI
 
 struct LevelView: View {
+    
     var level: Int
     var currentBest: Int
     var maxQuestion: Int
+    
     var body: some View {
         HStack {
             VStack {
                 HStack {
                     Text("LEVEL \(level)")
                     
-                    
                     Spacer()
-                    
                     
                     Text("\(currentBest) - \(maxQuestion)")
                         .font(.system(size: 22, weight: .bold))

@@ -24,6 +24,7 @@ struct GameProgress: View {
                 HStack {
                     Text("\(questionNumber)")
                         .foregroundColor(.red)
+                    
                     Text("- 10")
                 }
                 .font(.system(size: 24, weight: .bold))
@@ -38,6 +39,7 @@ struct GameProgress: View {
                 Text("Time")
                     .font(.system(size: 20, weight: .bold))
                     .opacity(0.4)
+                
                 Text(time)
                     .font(.system(size: 24, weight: .bold))
             }

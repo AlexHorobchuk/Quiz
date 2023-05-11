@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ScaledImage: View {
+    
     let name: String
     let size: CGSize
     
@@ -34,4 +35,5 @@ struct ScaledImage: View {
         }
         
         return renderedImage
-    }}
+    }
+}

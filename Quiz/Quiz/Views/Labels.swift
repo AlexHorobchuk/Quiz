@@ -12,7 +12,6 @@ struct QuestionText: View {
     var text: String
     
     var body: some View {
-        
         Text(text)
             .frame(maxWidth: .infinity)
             .foregroundColor(.white)

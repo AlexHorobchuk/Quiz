@@ -19,6 +19,7 @@ struct ProgressTable: View {
                 Text("Questions")
                     .font(.system(size: 20, weight: .bold))
                     .opacity(0.4)
+                
                 Text("0 - 10")
                     .font(.system(size: 24, weight: .bold))
             }
@@ -32,6 +33,7 @@ struct ProgressTable: View {
                 Text("Avarage Time")
                     .font(.system(size: 20, weight: .bold))
                     .opacity(0.4)
+                
                 Text(averageTime)
                     .font(.system(size: 24, weight: .bold))
             }

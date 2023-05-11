@@ -19,7 +19,6 @@ struct BaseView<Content: View> : View {
             Spacer(minLength: 70)
             
             content()
-            
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(LinearGradient(colors: [Color("Main2"), Color("Main1"), Color("Main2")], startPoint: .topLeading, endPoint: .bottomTrailing))
