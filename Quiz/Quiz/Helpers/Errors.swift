@@ -8,17 +8,21 @@
 import SwiftUI
 
 enum NetworkError: Error {
+    
     case invalidURL
     case invalidResponse
     case invalidData
     case unableToComplete
+    
 }
 
 struct AlertItem: Identifiable {
+    
     let id = UUID()
     let title: Text
     let message: Text
     let dismissButton: Alert.Button
+    
 }
 
 struct AlertContext {

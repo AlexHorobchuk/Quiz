@@ -18,9 +18,7 @@ struct NextButton: View {
                 .imageScale(.large)
                 .frame(width: 60, height: 60)
             
-            
             Text(text)
-            
             
             Spacer()
             
