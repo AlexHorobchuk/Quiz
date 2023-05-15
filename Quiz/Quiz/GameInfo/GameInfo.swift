@@ -26,7 +26,7 @@ struct GameInfo: View {
                 Spacer()
                 
                 ProgressTable(averageTime: storage.getLevelsAvarageTime(level: infoVM.info.level) == 0.00 ?
-                              "-:-" : String(format: "%.2f", storage.getLevelsAvarageTime(level: infoVM.info.level).convertToMinutesAndSeconds()))
+                              "-:-" : storage.getLevelsAvarageTime(level: infoVM.info.level).time())
                 
                 
                 NavigationLink(
@@ -36,7 +36,7 @@ struct GameInfo: View {
                 .padding(10)
                 
                 NavigationLink(
-                    destination: { },
+                    destination: { MultiplayerSetter(multiplayerSetter: MultiplayerSetterVM(info: infoVM.info)) },
                     label: {
                         MainButton(text: "Multiplayer")
                     })

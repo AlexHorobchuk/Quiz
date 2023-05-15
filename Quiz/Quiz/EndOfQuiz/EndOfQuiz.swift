@@ -40,7 +40,7 @@ struct EndOfQuiz: View {
                             }
                         }
                         
-                        Text(endGameVM.didWin ? "WICTORY" : "DEFEAT")
+                        Text(endGameVM.didWin ? "VICTORY" : "DEFEAT")
                             .foregroundColor(.white)
                             .font(.system(size: 32,weight: .heavy))
                             .minimumScaleFactor(0.5)
@@ -52,7 +52,7 @@ struct EndOfQuiz: View {
                     
                     Spacer()
                     
-                    GameProgress(time: String(format: "%.2f", endGameVM.time.convertToMinutesAndSeconds()),
+                    GameProgress(time: endGameVM.time.time(),
                                  questionNumber: endGameVM.result, text: "Correct answers")
                     
                     Spacer()

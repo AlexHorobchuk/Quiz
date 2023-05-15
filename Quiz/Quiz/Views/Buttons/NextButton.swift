@@ -13,12 +13,9 @@ struct NextButton: View {
     
     var body: some View {
         HStack {
-            Image(systemName: Getter.shared.categoryImage(category: text))
-                .opacity(0.5)
-                .imageScale(.large)
-                .frame(width: 60, height: 60)
             
             Text(text)
+                .padding(.leading, 20)
             
             Spacer()
             

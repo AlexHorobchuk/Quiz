@@ -25,9 +25,20 @@ struct AlertItem: Identifiable {
     
 }
 
+struct AlertConfirmation {
+    
+    static let goBack = AlertItem(title: Text("Do you want to leave?"),
+                                  message: Text("Game results will not be saved"),
+                                  dismissButton: .default(Text("No")))
+    
+    static let goBackMP = AlertItem(title: Text("Do you want to leave?"),
+                                             message: Text("You will automaticly loose this game"),
+                                             dismissButton: .default(Text("No")))
+}
+
 struct AlertContext {
     
-    static let invalidData      = AlertItem(title: Text("Server Error"),
+    static let invalidData = AlertItem(title: Text("Server Error"),
                                             message: Text("The data recieved from the server was invalid."),
                                             dismissButton: .default(Text("OK")))
     
@@ -35,7 +46,7 @@ struct AlertContext {
                                             message: Text("Invalid response from the server. Please try again."),
                                             dismissButton: .default(Text("OK")))
     
-    static let invalidURL       = AlertItem(title: Text("Server Error"),
+    static let invalidURL = AlertItem(title: Text("Server Error"),
                                             message: Text("There was an issue connecting to the server."),
                                             dismissButton: .default(Text("OK")))
     

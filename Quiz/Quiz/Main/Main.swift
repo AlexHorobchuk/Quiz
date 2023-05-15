@@ -37,7 +37,7 @@ struct Main: View {
                             NavigationLink(
                                 destination: GameSetter(storage: StorageController(category: mainVM.getCategoryName()),
                                                         gameSetterVM: GameSetterVM(category: mainVM.getSelectedCategory())),
-                                isActive: $navigation.showNextView) { EmptyView()}
+                                isActive: $navigation.showNextView) { EmptyView() }
                             
                             Spacer(minLength: 50)
                         }
@@ -59,7 +59,9 @@ struct Main: View {
         }
         .environmentObject(navigation)
         .alert(item: $mainVM.alert) { alert in
-            Alert(title: alert.title, message: alert.message, dismissButton: alert.dismissButton)
+            Alert(title: alert.title,
+                  message: alert.message,
+                  dismissButton: alert.dismissButton)
         }
         .accentColor(.white)
     }

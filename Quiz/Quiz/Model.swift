@@ -50,6 +50,7 @@ struct Answer: Decodable, Hashable {
     var isCorrect: Bool
     
 }
+
 struct Question: Decodable {
     
     var _id: String
@@ -58,4 +59,12 @@ struct Question: Decodable {
     var category: Category
     var difficulty: Difficulty
     
+}
+
+struct MultiplayerResult {
+    
+    var name: String
+    var gaveUp: Bool
+    var result: Int
+    var time: Double
 }

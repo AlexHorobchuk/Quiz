@@ -15,7 +15,14 @@ struct Getter {
     
     func categoryImage(category: String) -> String {
         switch category {
-        
+        case "Statistics":
+            return "star.fill"
+        case "Create":
+            return "plus.circle.fill"
+        case "Restart":
+            return "arrow.triangle.2.circlepath"
+        case "Join":
+            return "person.fill.badge.plus"
         case "Menu":
             return "list.bullet.circle.fill"
         case "Next":

@@ -19,6 +19,9 @@ struct MainButton: View {
                 .frame(width: 60, height: 60)
             
             Text(text)
+                .font(.system(size: 22, weight: .bold))
+                .lineLimit(1)
+            
             
             Spacer()
             

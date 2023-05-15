@@ -9,10 +9,11 @@ import SwiftUI
 
 struct AnswerButton: View {
     
+    var action: (()->())?
+    
     @Binding var selected: Int?
     @Binding var isRight: Bool?
     
-    var action: (()->())?
     var text: String
     var index: Int
     

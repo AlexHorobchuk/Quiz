@@ -7,17 +7,18 @@
 
 import SwiftUI
 
-final class GameVM: ObservableObject {
+class GameVM: ObservableObject {
     
     @Published var index = 0
     @Published var selected: Int?
     @Published var timeDisplay: Double = 0
     @Published var gameFinished = false
     @Published var answerdRight: Bool?
+    @Published var alert: AlertItem?
     
     private var answers : [Bool] = []
     
-    var info : Info
+    private(set) var info : Info
     
     init(info: Info) {
         self.info = info
@@ -28,6 +29,10 @@ final class GameVM: ObservableObject {
         if !gameFinished {
             timeDisplay += 1
         }
+    }
+    
+    func goBack() {
+        alert = AlertConfirmation.goBack
     }
     
     func currentQuestion() -> Question {
@@ -60,9 +65,11 @@ final class GameVM: ObservableObject {
             answerdRight = answer
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.answerdRight = nil
-                self.selected = nil
-                self.isGameFinished()
+                    withAnimation(.easeInOut(duration: 0.5)) {
+                    self.answerdRight = nil
+                    self.selected = nil
+                    self.isGameFinished()
+                }
             }
         }
     }

@@ -19,6 +19,13 @@
 		B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D12A0C521900414C79 /* NavigationController.swift */; };
 		B03E56D62A0C994900414C79 /* MainButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D52A0C994900414C79 /* MainButton.swift */; };
 		B03E56D82A0C996500414C79 /* NextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56D72A0C996500414C79 /* NextButton.swift */; };
+		B03E56DB2A0CA1CD00414C79 /* MultiplayerSetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56DA2A0CA1CD00414C79 /* MultiplayerSetter.swift */; };
+		B03E56DD2A0CA20700414C79 /* MultiplayerSetterVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56DC2A0CA20700414C79 /* MultiplayerSetterVM.swift */; };
+		B03E56E32A10434900414C79 /* GameLevel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56E22A10434900414C79 /* GameLevel.swift */; };
+		B03E56E52A10528300414C79 /* MultiplayerGameVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56E42A10528300414C79 /* MultiplayerGameVM.swift */; };
+		B03E56E82A10933A00414C79 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56E72A10933A00414C79 /* MultiplayerGame.swift */; };
+		B03E56EB2A10995A00414C79 /* EndOfMultiplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56EA2A10995A00414C79 /* EndOfMultiplayer.swift */; };
+		B03E56F02A11A95800414C79 /* MultiplayerSetterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56EF2A11A95800414C79 /* MultiplayerSetterExtensions.swift */; };
 		B093DF4F2A01FEBE00E5E3FA /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */; };
 		B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF502A01FEBE00E5E3FA /* Main.swift */; };
 		B093DF532A01FEC000E5E3FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B093DF522A01FEC000E5E3FA /* Assets.xcassets */; };
@@ -57,6 +64,13 @@
 		B03E56D12A0C521900414C79 /* NavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationController.swift; sourceTree = "<group>"; };
 		B03E56D52A0C994900414C79 /* MainButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainButton.swift; sourceTree = "<group>"; };
 		B03E56D72A0C996500414C79 /* NextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButton.swift; sourceTree = "<group>"; };
+		B03E56DA2A0CA1CD00414C79 /* MultiplayerSetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerSetter.swift; sourceTree = "<group>"; };
+		B03E56DC2A0CA20700414C79 /* MultiplayerSetterVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerSetterVM.swift; sourceTree = "<group>"; };
+		B03E56E22A10434900414C79 /* GameLevel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameLevel.swift; sourceTree = "<group>"; };
+		B03E56E42A10528300414C79 /* MultiplayerGameVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGameVM.swift; sourceTree = "<group>"; };
+		B03E56E72A10933A00414C79 /* MultiplayerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
+		B03E56EA2A10995A00414C79 /* EndOfMultiplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfMultiplayer.swift; sourceTree = "<group>"; };
+		B03E56EF2A11A95800414C79 /* MultiplayerSetterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerSetterExtensions.swift; sourceTree = "<group>"; };
 		B093DF4B2A01FEBE00E5E3FA /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
 		B093DF502A01FEBE00E5E3FA /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -107,8 +121,8 @@
 		B02DF52E2A086FE90074D5C0 /* GameSetter */ = {
 			isa = PBXGroup;
 			children = (
-				B02DF52F2A087BD50074D5C0 /* GameSetterVM.swift */,
 				B0AB3BC22A05F286001946C5 /* GameSetter.swift */,
+				B02DF52F2A087BD50074D5C0 /* GameSetterVM.swift */,
 			);
 			path = GameSetter;
 			sourceTree = "<group>";
@@ -139,14 +153,13 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		B03E56D02A0C489300414C79 /* Helpers */ = {
+		B03E56D02A0C489300414C79 /* Managers */ = {
 			isa = PBXGroup;
 			children = (
 				B02DF5342A08A04C0074D5C0 /* StorageManager.swift */,
 				B093DF5D2A01FF1800E5E3FA /* NetworkManager.swift */,
-				B093DF5F2A020CF700E5E3FA /* Errors.swift */,
 			);
-			path = Helpers;
+			path = Managers;
 			sourceTree = "<group>";
 		};
 		B03E56D32A0C526500414C79 /* Controllers */ = {
@@ -168,10 +181,58 @@
 			path = Buttons;
 			sourceTree = "<group>";
 		};
+		B03E56D92A0C9B9800414C79 /* MultiplayerSetter */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56DC2A0CA20700414C79 /* MultiplayerSetterVM.swift */,
+				B03E56E42A10528300414C79 /* MultiplayerGameVM.swift */,
+				B03E56EF2A11A95800414C79 /* MultiplayerSetterExtensions.swift */,
+				B03E56DA2A0CA1CD00414C79 /* MultiplayerSetter.swift */,
+			);
+			path = MultiplayerSetter;
+			sourceTree = "<group>";
+		};
+		B03E56DE2A0CEDC900414C79 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				B0AB3BD12A070AEC001946C5 /* Extras.swift */,
+				B0AB3BC42A060260001946C5 /* Extensions.swift */,
+				B093DF5F2A020CF700E5E3FA /* Errors.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B03E56E12A10430900414C79 /* Levels */ = {
+			isa = PBXGroup;
+			children = (
+				B0AB3BDB2A075159001946C5 /* LevelNumber.swift */,
+				B03E56E22A10434900414C79 /* GameLevel.swift */,
+			);
+			path = Levels;
+			sourceTree = "<group>";
+		};
+		B03E56E62A1092D600414C79 /* MultiplayerGame */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56E72A10933A00414C79 /* MultiplayerGame.swift */,
+			);
+			path = MultiplayerGame;
+			sourceTree = "<group>";
+		};
+		B03E56E92A10991700414C79 /* EndOfMultiplayer */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56EA2A10995A00414C79 /* EndOfMultiplayer.swift */,
+			);
+			path = EndOfMultiplayer;
+			sourceTree = "<group>";
+		};
 		B093DF422A01FEBD00E5E3FA = {
 			isa = PBXGroup;
 			children = (
 				B093DF4D2A01FEBE00E5E3FA /* Quiz */,
+				B02DF5312A089FE90074D5C0 /* Storage.xcdatamodeld */,
+				B093DF522A01FEC000E5E3FA /* Assets.xcassets */,
 				B093DF4C2A01FEBE00E5E3FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -198,12 +259,12 @@
 				B03E56CF2A0C485400414C79 /* Settings */,
 				B03E56D32A0C526500414C79 /* Controllers */,
 				B0AB3BC62A060788001946C5 /* Views */,
-				B03E56D02A0C489300414C79 /* Helpers */,
-				B0AB3BC42A060260001946C5 /* Extensions.swift */,
-				B0AB3BD12A070AEC001946C5 /* Extras.swift */,
-				B093DF522A01FEC000E5E3FA /* Assets.xcassets */,
+				B03E56D02A0C489300414C79 /* Managers */,
+				B03E56D92A0C9B9800414C79 /* MultiplayerSetter */,
+				B03E56E62A1092D600414C79 /* MultiplayerGame */,
+				B03E56E92A10991700414C79 /* EndOfMultiplayer */,
+				B03E56DE2A0CEDC900414C79 /* Helpers */,
 				B093DF542A01FEC000E5E3FA /* Preview Content */,
-				B02DF5312A089FE90074D5C0 /* Storage.xcdatamodeld */,
 			);
 			path = Quiz;
 			sourceTree = "<group>";
@@ -219,6 +280,7 @@
 		B0AB3BC62A060788001946C5 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B03E56E12A10430900414C79 /* Levels */,
 				B03E56D42A0C992900414C79 /* Buttons */,
 				B02DF52C2A0868590074D5C0 /* LoadingView.swift */,
 				B0AB3BC72A0607BA001946C5 /* LinkView.swift */,
@@ -226,7 +288,6 @@
 				B0AB3BD52A07309A001946C5 /* ScaledImage.swift */,
 				B0AB3BD92A074FF0001946C5 /* ProgressTable.swift */,
 				B0AB3BDD2A075208001946C5 /* GameProgress.swift */,
-				B0AB3BDB2A075159001946C5 /* LevelNumber.swift */,
 				B0AB3BB72A02339A001946C5 /* BaseScene.swift */,
 				B0AB3BDF2A079662001946C5 /* Labels.swift */,
 			);
@@ -313,12 +374,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0AB3BDE2A075208001946C5 /* GameProgress.swift in Sources */,
+				B03E56E52A10528300414C79 /* MultiplayerGameVM.swift in Sources */,
 				B02DF5332A089FE90074D5C0 /* Storage.xcdatamodeld in Sources */,
+				B03E56DB2A0CA1CD00414C79 /* MultiplayerSetter.swift in Sources */,
 				B02DF5262A0842630074D5C0 /* EndOfQuiz.swift in Sources */,
 				B0AB3BB62A022897001946C5 /* Model.swift in Sources */,
 				B0E0CFB92A0A112200175F02 /* EndOfQuizVM.swift in Sources */,
 				B02DF53A2A09C7FD0074D5C0 /* GameInfoVM.swift in Sources */,
 				B0AB3BDC2A07515A001946C5 /* LevelNumber.swift in Sources */,
+				B03E56F02A11A95800414C79 /* MultiplayerSetterExtensions.swift in Sources */,
 				B0AB3BD22A070AEC001946C5 /* Extras.swift in Sources */,
 				B0AB3BD62A07309A001946C5 /* ScaledImage.swift in Sources */,
 				B02DF53D2A09E5A80074D5C0 /* GameVM.swift in Sources */,
@@ -327,14 +391,18 @@
 				B03E56D62A0C994900414C79 /* MainButton.swift in Sources */,
 				B0AB3BB82A02339A001946C5 /* BaseScene.swift in Sources */,
 				B0AB3BC12A05F236001946C5 /* Settings.swift in Sources */,
+				B03E56E32A10434900414C79 /* GameLevel.swift in Sources */,
 				B0AB3BE02A079662001946C5 /* Labels.swift in Sources */,
 				B0AB3BCC2A06126F001946C5 /* AnswerButton.swift in Sources */,
+				B03E56E82A10933A00414C79 /* MultiplayerGame.swift in Sources */,
 				B0AB3BD02A0708B1001946C5 /* LevelView.swift in Sources */,
 				B0AB3BC52A060260001946C5 /* Extensions.swift in Sources */,
 				B093DF602A020CF700E5E3FA /* Errors.swift in Sources */,
 				B0AB3BDA2A074FF0001946C5 /* ProgressTable.swift in Sources */,
 				B02DF52D2A0868590074D5C0 /* LoadingView.swift in Sources */,
+				B03E56DD2A0CA20700414C79 /* MultiplayerSetterVM.swift in Sources */,
 				B0AB3BD82A074021001946C5 /* QuizGame.swift in Sources */,
+				B03E56EB2A10995A00414C79 /* EndOfMultiplayer.swift in Sources */,
 				B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */,
 				B02DF5372A09A4660074D5C0 /* StorageController.swift in Sources */,
 				B093DF5E2A01FF1800E5E3FA /* NetworkManager.swift in Sources */,
@@ -477,6 +545,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Game uses Local Network to play multiplayer games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -508,6 +577,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Quiz/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Game uses Local Network to play multiplayer games";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

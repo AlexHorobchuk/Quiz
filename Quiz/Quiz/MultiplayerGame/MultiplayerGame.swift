@@ -1,19 +1,17 @@
 //
-//  QuizGame.swift
+//  MultiplayerGame.swift
 //  Quiz
 //
-//  Created by Olha Dzhyhirei on 5/6/23.
+//  Created by Olha Dzhyhirei on 5/13/23.
 //
 
 import SwiftUI
 
-struct QuizGame: View {
-    
-    @EnvironmentObject var storage: StorageController
+struct MultiplayerGame: View {
     
     @Environment(\.presentationMode) var presentationMode
     
-    @StateObject var game: GameVM
+    @ObservedObject var multiplayer: MultiplayerSetterVM
     
     @State var timer: Timer?
     
@@ -21,14 +19,14 @@ struct QuizGame: View {
         BaseView() {
             ZStack {
                 VStack {
-                    GameLevel(action: game.goBack,
-                              level: game.info.level)
+                    GameLevel(action: multiplayer.goBack,
+                              level: multiplayer.game.info.level)
                     
-                    GameProgress(time: game.timeDisplay.time(),
-                                 questionNumber: game.index + 1, text: "Questions")
+                    GameProgress(time: multiplayer.game.timeDisplay.time(),
+                                 questionNumber: multiplayer.game.index + 1, text: "Questions")
                     
-                    ForEach(game.info.questions, id: \.self._id) { question in
-                        if game.currentQuestion() == question {
+                    ForEach(multiplayer.game.info.questions, id: \.self._id) { question in
+                        if multiplayer.game.currentQuestion() == question {
                             ScrollView {
                                 QuestionText(text: question.text)
                                 
@@ -39,11 +37,11 @@ struct QuizGame: View {
                                 AnswerButton(
                                     action: {
                                         withAnimation(.easeInOut(duration: 0.5)) {
-                                            game.selectQuestion(number: index)
+                                            multiplayer.game.selectQuestion(number: index)
                                         }
                                     },
-                                    selected: $game.selected,
-                                    isRight: $game.answerdRight,
+                                    selected: $multiplayer.game.selected,
+                                    isRight: $multiplayer.game.answerdRight,
                                     text: value.option,
                                     index: index)
                                 .padding(10)
@@ -55,10 +53,10 @@ struct QuizGame: View {
                     
                     Button(
                         action: { withAnimation(.easeInOut(duration: 1)) {
-                            game.confirmAnswer()
-                        }
-                            if game.gameFinished {
-                            self.timer?.invalidate()
+                            multiplayer.game.confirmAnswer()
+                            if multiplayer.game.gameFinished {
+                                self.timer?.invalidate()
+                            }
                         }
                         },
                         label: {
@@ -71,35 +69,33 @@ struct QuizGame: View {
                 .padding(.horizontal)
                 
                 NavigationLink(
-                    destination: EndOfQuiz(endGameVM: EndOfQuizVM(info: game.info,
-                                                                  result: game.getResult(),
-                                                                  didWin: game.didWin(),
-                                                                  time: game.timeDisplay)),
-                    isActive: $game.gameFinished) { EmptyView() }
+                    destination: EndOfMultiplayer(game: multiplayer),
+                    isActive: $multiplayer.game.gameFinished) { EmptyView() }
             }
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                game.myTimer()
+                multiplayer.game.myTimer()
+                multiplayer.sendRemainingTime()
             }
         }
-        .alert(item: $game.alert) { alert in
+        .onChange(of: multiplayer.game.gameFinished) { newValue in
+            if newValue {
+                multiplayer.sendResult()
+            }
+        }
+        .alert(item: $multiplayer.alert) { alert in
             Alert(title: alert.title,
                   message: alert.message,
                   primaryButton: .destructive(Text("Yes")) {
-                                presentationMode.wrappedValue.dismiss()
-                            },
+                multiplayer.surrender()
+                presentationMode.wrappedValue.dismiss()
+            },
                   secondaryButton: alert.dismissButton)
         }
         .onDisappear {
             self.timer?.invalidate()
-            if game.gameFinished {
-                storage.updateLevel(level: game.info.level,
-                                    newTime: game.timeDisplay,
-                                    result: game.getResult(),
-                                    updateMax: game.needUpdateMax())
-            }
         }
     }
 }
