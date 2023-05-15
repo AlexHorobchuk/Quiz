@@ -39,7 +39,8 @@ struct MultiplayerSetter: View {
                 .padding(10)
                 
                 NavigationLink(
-                    destination: MultiplayerGame(multiplayer: multiplayerSetter),
+                    destination: MultiplayerGame(multiplayer: multiplayerSetter,
+                                                 game: multiplayerSetter.game),
                     isActive: $multiplayerSetter.connected) { EmptyView() }
                 
                 Spacer()

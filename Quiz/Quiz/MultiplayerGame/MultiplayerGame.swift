@@ -12,6 +12,7 @@ struct MultiplayerGame: View {
     @Environment(\.presentationMode) var presentationMode
     
     @ObservedObject var multiplayer: MultiplayerSetterVM
+    @ObservedObject var game: MultilPlayerGameVM
     
     @State var timer: Timer?
     
@@ -20,13 +21,13 @@ struct MultiplayerGame: View {
             ZStack {
                 VStack {
                     GameLevel(action: multiplayer.goBack,
-                              level: multiplayer.game.info.level)
+                              level: game.info.level)
                     
                     GameProgress(time: multiplayer.game.timeDisplay.time(),
-                                 questionNumber: multiplayer.game.index + 1, text: "Questions")
+                                 questionNumber: game.index + 1, text: "Questions")
                     
-                    ForEach(multiplayer.game.info.questions, id: \.self._id) { question in
-                        if multiplayer.game.currentQuestion() == question {
+                    ForEach(game.info.questions, id: \.self._id) { question in
+                        if game.currentQuestion() == question {
                             ScrollView {
                                 QuestionText(text: question.text)
                                 
@@ -37,11 +38,11 @@ struct MultiplayerGame: View {
                                 AnswerButton(
                                     action: {
                                         withAnimation(.easeInOut(duration: 0.5)) {
-                                            multiplayer.game.selectQuestion(number: index)
+                                            game.selectQuestion(number: index)
                                         }
                                     },
-                                    selected: $multiplayer.game.selected,
-                                    isRight: $multiplayer.game.answerdRight,
+                                    selected: $game.selected,
+                                    isRight: $game.answerdRight,
                                     text: value.option,
                                     index: index)
                                 .padding(10)
@@ -53,8 +54,8 @@ struct MultiplayerGame: View {
                     
                     Button(
                         action: { withAnimation(.easeInOut(duration: 1)) {
-                            multiplayer.game.confirmAnswer()
-                            if multiplayer.game.gameFinished {
+                            game.confirmAnswer()
+                            if game.gameFinished {
                                 self.timer?.invalidate()
                             }
                         }
@@ -70,17 +71,17 @@ struct MultiplayerGame: View {
                 
                 NavigationLink(
                     destination: EndOfMultiplayer(game: multiplayer),
-                    isActive: $multiplayer.game.gameFinished) { EmptyView() }
+                    isActive: $game.gameFinished) { EmptyView() }
             }
         }
         .navigationBarBackButtonHidden(true)
         .onAppear {
             self.timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-                multiplayer.game.myTimer()
+                game.myTimer()
                 multiplayer.sendRemainingTime()
             }
         }
-        .onChange(of: multiplayer.game.gameFinished) { newValue in
+        .onChange(of: game.gameFinished) { newValue in
             if newValue {
                 multiplayer.sendResult()
             }
