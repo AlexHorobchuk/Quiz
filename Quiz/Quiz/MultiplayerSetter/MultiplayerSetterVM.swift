@@ -33,13 +33,8 @@ final class MultiplayerSetterVM: NSObject, ObservableObject {
     func surrender() {
         didGaveUp = true
         sendResult()
-        if enemyResult == nil {
-            enemyResult = MultiplayerResult(name: "Winner", gaveUp: false, result: 0, time: 120)
-        }
-        restart()
+        StorageManager.shared.addResult(myResult: 0, enemyResult: 0, didWin: false, name: "Player2")
     }
-    
-    
     
     func sendData(data: String) {
         guard let data = data.data(using: .utf8) else { return }
@@ -81,6 +76,32 @@ final class MultiplayerSetterVM: NSObject, ObservableObject {
         let browser = MCBrowserViewController(serviceType: "gt-conn4", session: session)
         browser.delegate = self
         UIApplication.shared.windows.first?.rootViewController?.present(browser, animated: true)
+    }
+    
+    func didWin() -> Bool? {
+        guard let enemyResult = enemyResult else { return nil }
+        guard enemyResult.gaveUp != true else { return true }
+        if enemyResult.result > game.getResult() {
+            return false
+        }
+        else if enemyResult.result < game.getResult() {
+            return true
+        } else {
+            if enemyResult.time > game.timeDisplay {
+                return false
+            }
+            else {
+                return true
+            }
+        }
+    }
+    
+    func saveResult() {
+        guard let enemyResult = enemyResult else { return surrender() }
+        StorageManager.shared.addResult(myResult: game.getResult(),
+                                        enemyResult: enemyResult.result,
+                                        didWin: didWin() ?? true,
+                                        name: enemyResult.name)
     }
     
     func goBack() {

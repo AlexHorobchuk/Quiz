@@ -26,6 +26,10 @@
 		B03E56E82A10933A00414C79 /* MultiplayerGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56E72A10933A00414C79 /* MultiplayerGame.swift */; };
 		B03E56EB2A10995A00414C79 /* EndOfMultiplayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56EA2A10995A00414C79 /* EndOfMultiplayer.swift */; };
 		B03E56F02A11A95800414C79 /* MultiplayerSetterExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56EF2A11A95800414C79 /* MultiplayerSetterExtensions.swift */; };
+		B03E56F72A1226A700414C79 /* MPPlayerResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56F62A1226A700414C79 /* MPPlayerResults.swift */; };
+		B03E56FA2A12E00C00414C79 /* Statistic.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56F92A12E00C00414C79 /* Statistic.swift */; };
+		B03E56FC2A1319D000414C79 /* StatisticBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56FB2A1319D000414C79 /* StatisticBar.swift */; };
+		B03E56FE2A131E9400414C79 /* StatisticResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = B03E56FD2A131E9400414C79 /* StatisticResult.swift */; };
 		B093DF4F2A01FEBE00E5E3FA /* QuizApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */; };
 		B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = B093DF502A01FEBE00E5E3FA /* Main.swift */; };
 		B093DF532A01FEC000E5E3FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B093DF522A01FEC000E5E3FA /* Assets.xcassets */; };
@@ -71,6 +75,10 @@
 		B03E56E72A10933A00414C79 /* MultiplayerGame.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerGame.swift; sourceTree = "<group>"; };
 		B03E56EA2A10995A00414C79 /* EndOfMultiplayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndOfMultiplayer.swift; sourceTree = "<group>"; };
 		B03E56EF2A11A95800414C79 /* MultiplayerSetterExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiplayerSetterExtensions.swift; sourceTree = "<group>"; };
+		B03E56F62A1226A700414C79 /* MPPlayerResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MPPlayerResults.swift; sourceTree = "<group>"; };
+		B03E56F92A12E00C00414C79 /* Statistic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statistic.swift; sourceTree = "<group>"; };
+		B03E56FB2A1319D000414C79 /* StatisticBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticBar.swift; sourceTree = "<group>"; };
+		B03E56FD2A131E9400414C79 /* StatisticResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticResult.swift; sourceTree = "<group>"; };
 		B093DF4B2A01FEBE00E5E3FA /* Quiz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quiz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizApp.swift; sourceTree = "<group>"; };
 		B093DF502A01FEBE00E5E3FA /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -227,12 +235,18 @@
 			path = EndOfMultiplayer;
 			sourceTree = "<group>";
 		};
+		B03E56F82A12DFA500414C79 /* Statistic */ = {
+			isa = PBXGroup;
+			children = (
+				B03E56F92A12E00C00414C79 /* Statistic.swift */,
+			);
+			path = Statistic;
+			sourceTree = "<group>";
+		};
 		B093DF422A01FEBD00E5E3FA = {
 			isa = PBXGroup;
 			children = (
 				B093DF4D2A01FEBE00E5E3FA /* Quiz */,
-				B02DF5312A089FE90074D5C0 /* Storage.xcdatamodeld */,
-				B093DF522A01FEC000E5E3FA /* Assets.xcassets */,
 				B093DF4C2A01FEBE00E5E3FA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -249,8 +263,11 @@
 			isa = PBXGroup;
 			children = (
 				B093DF5C2A01FEF700E5E3FA /* Info.plist */,
+				B093DF522A01FEC000E5E3FA /* Assets.xcassets */,
+				B02DF5312A089FE90074D5C0 /* Storage.xcdatamodeld */,
 				B093DF4E2A01FEBE00E5E3FA /* QuizApp.swift */,
 				B0AB3BB52A022897001946C5 /* Model.swift */,
+				B03E56F82A12DFA500414C79 /* Statistic */,
 				B02DF5272A0863A70074D5C0 /* Main */,
 				B02DF52E2A086FE90074D5C0 /* GameSetter */,
 				B02DF5382A09C7A10074D5C0 /* GameInfo */,
@@ -290,6 +307,9 @@
 				B0AB3BDD2A075208001946C5 /* GameProgress.swift */,
 				B0AB3BB72A02339A001946C5 /* BaseScene.swift */,
 				B0AB3BDF2A079662001946C5 /* Labels.swift */,
+				B03E56F62A1226A700414C79 /* MPPlayerResults.swift */,
+				B03E56FB2A1319D000414C79 /* StatisticBar.swift */,
+				B03E56FD2A131E9400414C79 /* StatisticResult.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -379,6 +399,8 @@
 				B03E56DB2A0CA1CD00414C79 /* MultiplayerSetter.swift in Sources */,
 				B02DF5262A0842630074D5C0 /* EndOfQuiz.swift in Sources */,
 				B0AB3BB62A022897001946C5 /* Model.swift in Sources */,
+				B03E56FC2A1319D000414C79 /* StatisticBar.swift in Sources */,
+				B03E56FA2A12E00C00414C79 /* Statistic.swift in Sources */,
 				B0E0CFB92A0A112200175F02 /* EndOfQuizVM.swift in Sources */,
 				B02DF53A2A09C7FD0074D5C0 /* GameInfoVM.swift in Sources */,
 				B0AB3BDC2A07515A001946C5 /* LevelNumber.swift in Sources */,
@@ -386,6 +408,7 @@
 				B0AB3BD22A070AEC001946C5 /* Extras.swift in Sources */,
 				B0AB3BD62A07309A001946C5 /* ScaledImage.swift in Sources */,
 				B02DF53D2A09E5A80074D5C0 /* GameVM.swift in Sources */,
+				B03E56FE2A131E9400414C79 /* StatisticResult.swift in Sources */,
 				B02DF5292A0863F40074D5C0 /* MainVM.swift in Sources */,
 				B0AB3BC32A05F286001946C5 /* GameSetter.swift in Sources */,
 				B03E56D62A0C994900414C79 /* MainButton.swift in Sources */,
@@ -406,6 +429,7 @@
 				B03E56D22A0C521900414C79 /* NavigationController.swift in Sources */,
 				B02DF5372A09A4660074D5C0 /* StorageController.swift in Sources */,
 				B093DF5E2A01FF1800E5E3FA /* NetworkManager.swift in Sources */,
+				B03E56F72A1226A700414C79 /* MPPlayerResults.swift in Sources */,
 				B093DF512A01FEBE00E5E3FA /* Main.swift in Sources */,
 				B02DF5352A08A04D0074D5C0 /* StorageManager.swift in Sources */,
 				B0AB3BC82A0607BA001946C5 /* LinkView.swift in Sources */,

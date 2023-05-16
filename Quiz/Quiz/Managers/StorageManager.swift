@@ -22,6 +22,26 @@ final class StorageManager {
         }
     }
     
+    func fetchResults() -> [MPResult] {
+        let request = NSFetchRequest<MPResult>(entityName: "MPResult")
+        do {
+            let result = try container.viewContext.fetch(request)
+            return result
+        } catch let error {
+            print("Error : \(error.localizedDescription)")
+        }
+        return [MPResult]()
+    }
+    
+    func addResult(myResult: Int, enemyResult: Int, didWin: Bool, name: String) {
+        let newResult = MPResult(context: container.viewContext)
+        newResult.enemyName = name
+        newResult.enemyResult = Int64(enemyResult)
+        newResult.didWin = didWin
+        newResult.myResult = Int64(myResult)
+        saveData()
+    }
+    
     func fetchCategory(name: String) -> CategoryEntity {
         let request = NSFetchRequest<CategoryEntity>(entityName: "CategoryEntity")
         request.predicate = NSPredicate(format: "name == %@", name as CVarArg)

@@ -32,8 +32,16 @@ struct MultiplayerSetter: View {
                 )
                 .padding(10)
                 
+                Button (
+                    action: {
+                        multiplayerSetter.restart()
+                    },
+                    label: { MainButton(text: "Reset") }
+                )
+                .padding(10)
+                
                 NavigationLink(
-                    destination: {},
+                    destination: Statistic(),
                     label: { MainButton(text: "Statistics") }
                 )
                 .padding(10)

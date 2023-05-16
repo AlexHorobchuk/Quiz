@@ -19,7 +19,7 @@ struct Getter {
             return "star.fill"
         case "Create":
             return "plus.circle.fill"
-        case "Restart":
+        case "Reset":
             return "arrow.triangle.2.circlepath"
         case "Join":
             return "person.fill.badge.plus"

@@ -22,7 +22,6 @@ struct MainButton: View {
                 .font(.system(size: 22, weight: .bold))
                 .lineLimit(1)
             
-            
             Spacer()
             
             Image(systemName: "chevron.right")

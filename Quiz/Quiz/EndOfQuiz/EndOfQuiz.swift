@@ -45,9 +45,13 @@ struct EndOfQuiz: View {
                             .font(.system(size: 32,weight: .heavy))
                             .minimumScaleFactor(0.5)
                         
-                        ScaledImage(name: endGameVM.didWin ? "trophy.fill" : "hand.thumbsdown.fill", size: .init(width: 80, height: 80)).opacity(0.5)
-                            .rotationEffect(isRotated ? Angle(degrees: endGameVM.didWin ? 15 : -15) : Angle(degrees: endGameVM.didWin ? -15 : 15))
-                            .scaleEffect(x: -1, y: 1)
+                        ScaledImage(name: endGameVM.didWin ? "trophy.fill" : "hand.thumbsdown.fill",
+                                    size: .init(width: 80, height: 80))
+                        .opacity(0.5)
+                        .rotationEffect(isRotated ?
+                                          Angle(degrees: endGameVM.didWin ? 15 : -15)
+                                        : Angle(degrees: endGameVM.didWin ? -15 : 15))
+                        .scaleEffect(x: -1, y: 1)
                     }
                     
                     Spacer()

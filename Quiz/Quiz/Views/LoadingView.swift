@@ -9,11 +9,13 @@ import SwiftUI
 
 struct LoadingView: View {
     
+    var text: String?
+    
     var body: some View {
         VStack {
             Spacer()
             
-            ProgressView("Loading")
+            ProgressView(text != nil ? "Remaining time: \n" + text! : "Loading")
                 .progressViewStyle(CircularProgressViewStyle(tint: .white))
                 .scaleEffect(2)
                 .frame(width: 300, height: 300)

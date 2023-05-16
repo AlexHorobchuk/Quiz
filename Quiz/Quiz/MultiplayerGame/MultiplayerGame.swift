@@ -91,7 +91,10 @@ struct MultiplayerGame: View {
                   message: alert.message,
                   primaryButton: .destructive(Text("Yes")) {
                 multiplayer.surrender()
-                presentationMode.wrappedValue.dismiss()
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    multiplayer.restart()
+                    presentationMode.wrappedValue.dismiss()
+                }
             },
                   secondaryButton: alert.dismissButton)
         }
